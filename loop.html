@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. for_下划线 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="has-sidebar">
+    <!-- 侧边导航栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>📋 目录</h3>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="array_list_intro.html">1. 数组/列表</a></li>
+            <li><a href="list_ops_detailed.html">2. 列表常用操作</a></li>
+            <li><a href="list_ops_demo.html">3. 列表操作演示</a></li>
+            <li><a href="dict_basics.html">4. 字典核心特性</a></li>
+            <li><a href="dict_ops.html">5. 字典常用方法</a></li>
+            <li><a href="loop.html" class="active">6. for 循环下划线</a></li>
+            <li><a href="summary.html">7. 总结</a></li>
+        </ul>
+    </div>
+    
+    <div class="progress-bar" style="width: 70%;"></div>
+
+    <div class="page-container">
+        <div class="two-col">
+            <div class="col-left">
+                <h2>🔄 5. for 循环里的下划线</h2>
+                
+                <h3 style="color: #22c55e; margin-bottom: 0.8rem; margin-top: 1.5rem;">核心定义</h3>
+                <p style="font-size: 1.4rem;"><strong>语法层面</strong>：<code>_</code> 是一个<strong>合法的变量名</strong>，完全符合 Python 语法规则。</p>
+                <p style="font-size: 1.4rem;"><strong>社区约定</strong>：在 Python 开发社区中，<code>_</code> 被赋予了特定的语义——它专门用来表示 <strong>“我不需要这个值”</strong>（I don't care about this value）。</p>
+                
+                <h3 style="color: #f59e0b; margin-bottom: 0.8rem; margin-top: 1.5rem;">典型应用场景</h3>
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 0.8rem; margin-bottom: 1.5rem;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 1.2rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #475569;">
+                                <th style="text-align: left; padding: 0.6rem; color: #94a3b8;">场景</th>
+                                <th style="text-align: left; padding: 0.6rem; color: #94a3b8;">代码示例</th>
+                                <th style="text-align: left; padding: 0.6rem; color: #94a3b8;">含义解析</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #334155;">
+                                <td style="padding: 0.6rem; color: #cbd5e1;">循环次数</td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>for _ in range(5):</code></td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">只需执行 5 次循环逻辑，不关心每次循环产生的计数器值</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">解包忽略</td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>a, _, c = (1, 2, 3)</code></td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">解构元组/列表时，忽略中间的那个元素</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3 style="color: #3b82f6; margin-bottom: 0.8rem; margin-top: 1.5rem;">为什么使用 <code>_</code>？</h3>
+                <p style="font-size: 1.4rem;"><strong>可读性提升</strong>：明确地向阅读代码的人传递信号：这个变量是占位用的，后续逻辑<strong>不会使用</strong>它。</p>
+                <p style="font-size: 1.4rem;"><strong>避免警告</strong>：在代码编辑器中，如果定义了变量却未使用，通常会触发 linter 的警告。使用 <code>_</code> 可以明确规避这种警告。</p>
+            </div>
+            
+            <div class="col-right">
+                <div class="editor-window" style="max-width: 100%; margin: 0;">
+                    <div class="editor-header">
+                        <div class="mac-dots">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        </div>
+                        <div class="editor-title">loop_demo.py</div>
+                    </div>
+                    <div class="editor-body">
+<pre><code class="language-python"># 示例 1：循环次数
+print("--- 循环次数示例 ---")
+# 循环 5 次并打印 "Hello"，无需使用循环变量
+for _ in range(5):
+    print("Hello")
+
+# 示例 2：解包忽略
+print("\n--- 解包忽略示例 ---")
+# 解构元组，只保留第一个和第三个元素，忽略中间的 "banana"
+first, _, last = ("apple", "banana", "cherry")
+print(first, last)</code></pre>
+                    </div>
+                    <div class="interaction-area">
+                        <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+                    </div>
+                    <div class="console-output" id="output"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem; background: var(--card-bg); padding: 2rem; border-radius: 1rem; width: 100%; max-width: 1000px;">
+            <h3 style="color: #f59e0b; margin-bottom: 1rem;">Python 变量名命名规则</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>Python 变量名必须遵守 3 条铁律（不遵守就是非法）</strong></p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 0.5rem;">1. 只能用：字母、数字、下划线</h4>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">可以：name、my_var、user123</p>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">不行：user@name、my-var、hello!</p>
+                </div>
+                
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 0.5rem;">2. 不能以数字开头</h4>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">可以：a1、_123</p>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">不行：123a、1name</p>
+                </div>
+                
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 0.5rem;">3. 不能是 Python 自带的关键字</h4>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">比如：if、for、else、True、False、def、class</p>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">你不能写：if = 10 → 直接报错！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="dict_ops.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="summary.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = `--- 循环次数示例 ---
+Hello
+Hello
+Hello
+Hello
+Hello
+
+--- 解包忽略示例 ---
+apple cherry`;
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

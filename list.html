@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. 列表 (List) - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar" style="width: 20%;"></div>
+
+    <div class="page-container">
+        <div class="two-col">
+            <div class="col-left">
+                <h2>🎒 2. 列表 (List)</h2>
+                <p>列表是 Python 中最常用的数据结构之一！</p>
+                <p>它就像一个 <b>"万能魔法背包"</b>：</p>
+                <ul>
+                    <li style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #cbd5e1;">👉 <b>什么都能装</b>：数字、文字、布尔值、甚至另一个列表！</li>
+                    <li style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #cbd5e1;">👉 <b>随意变大变小</b>：随时追加新东西，背包自动适应大小。</li>
+                </ul>
+                <br>
+                <p>在 Python 中，我们用方括号 <code>[]</code> 来创建列表。</p>
+            </div>
+            <div class="col-right">
+                <div class="editor-window">
+                    <div class="editor-header">
+                        <div class="mac-dots">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        </div>
+                        <div class="editor-title">list_demo.py</div>
+                    </div>
+                    <div class="editor-body">
+<pre><code class="language-python"># 创建一个列表
+my_list = [100, "苹果", True, 3.14]
+
+print("初始背包:", my_list)
+
+# 往列表里追加新东西
+my_list.append("新朋友")
+
+print("装入新东西后:", my_list)</code></pre>
+                    </div>
+                    <div class="interaction-area">
+                        <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+                    </div>
+                    <div class="console-output" id="output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="array.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="array_vs_list.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = "初始背包: [100, '苹果', True, 3.14]\n装入新东西后: [100, '苹果', True, 3.14, '新朋友']";
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

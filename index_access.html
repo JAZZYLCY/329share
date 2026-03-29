@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. 索引：怎么从列表里拿东西 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar" style="width: 40%;"></div>
+
+    <div class="page-container">
+        <h2>🔢 3. 索引：怎么从列表里拿东西</h2>
+        <p style="margin-bottom: 2rem;">列表里放了那么多东西，我怎么拿出其中一个呢？用 <b>索引</b>！</p>
+
+        <div style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem;">
+            <h3 style="color: #60a5fa; margin-bottom: 1.5rem;">📝 索引示意图</h3>
+            <div style="font-family: 'Fira Code', monospace; font-size: 1.3rem; text-align: center; margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <span style="color: #f59e0b; font-weight: bold;">索引:</span>
+                    <span style="background: #1e3a5f; padding: 0.3rem 0.8rem; border-radius: 4px;">0</span>
+                    <span style="background: #1e3a5f; padding: 0.3rem 0.8rem; border-radius: 4px;">1</span>
+                    <span style="background: #1e3a5f; padding: 0.3rem 0.8rem; border-radius: 4px;">2</span>
+                    <span style="background: #1e3a5f; padding: 0.3rem 0.8rem; border-radius: 4px;">3</span>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem;">
+                    <span style="color: #22c55e; font-weight: bold;">内容:</span>
+                    <span style="background: #166534; padding: 0.3rem 0.8rem; border-radius: 4px;">"牛奶"</span>
+                    <span style="background: #166534; padding: 0.3rem 0.8rem; border-radius: 4px;">"面包"</span>
+                    <span style="background: #166534; padding: 0.3rem 0.8rem; border-radius: 4px;">"苹果"</span>
+                    <span style="background: #166534; padding: 0.3rem 0.8rem; border-radius: 4px;">"鸡蛋"</span>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 0.5rem;">
+                    <span style="color: #f472b6; font-weight: bold;">反向索引:</span>
+                    <span style="background: #831843; padding: 0.3rem 0.8rem; border-radius: 4px;">-4</span>
+                    <span style="background: #831843; padding: 0.3rem 0.8rem; border-radius: 4px;">-3</span>
+                    <span style="background: #831843; padding: 0.3rem 0.8rem; border-radius: 4px;">-2</span>
+                    <span style="background: #831843; padding: 0.3rem 0.8rem; border-radius: 4px;">-1</span>
+                </div>
+            </div>
+            <ul style="font-size: 1.1rem; line-height: 2; color: #cbd5e1;">
+                <li>✨ <span class="highlight-text">重要：从 0 开始数！</span> 第1个是 [0]，第2个是 [1]...</li>
+                <li>✨ 用负数可以从尾巴倒着数：[-1] 是最后1个，[-2] 是倒数第2个...</li>
+            </ul>
+        </div>
+
+        <div class="editor-window">
+            <div class="editor-header">
+                <div class="mac-dots">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="editor-title">index_demo.py</div>
+            </div>
+            <div class="editor-body">
+<pre><code class="language-python"># 购物车列表
+cart = ["牛奶", "面包", "苹果", "鸡蛋"]
+
+print("购物车:", cart)
+
+# --- 正向索引 ---
+print("第1件商品:", cart[0])   # 0 是第1个
+print("第3件商品:", cart[2])   # 2 是第3个
+
+# --- 反向索引 ---
+print("最后1件:", cart[-1])    # -1 是最后1个
+print("倒数第2个:", cart[-2])  # -2 是倒数第2个</code></pre>
+            </div>
+            <div class="interaction-area">
+                <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+            </div>
+            <div class="console-output" id="output"></div>
+        </div>
+
+        <h3 style="color: #f59e0b; margin-top: 2.5rem; margin-bottom: 1.5rem;">⚠️ 易错点提醒</h3>
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 1rem;">
+            <ul style="font-size: 1.1rem; line-height: 2.2; color: #cbd5e1;">
+                <li>❌ <span style="color: #ef4444;">索引越界</span>：访问不存在的索引（如长度为4的列表访问 <code>cart[4]</code>）会直接报错</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="array_vs_list.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="list_ops.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = "购物车: ['牛奶', '面包', '苹果', '鸡蛋']\n第1件商品: 牛奶\n第3件商品: 苹果\n最后1件: 鸡蛋\n倒数第2个: 苹果";
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

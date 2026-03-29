@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. 列表的修改与添加 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar" style="width: 50%;"></div>
+
+    <div class="page-container">
+        <h2>✏️ 4. 列表常用方法详解</h2>
+        <p style="margin-bottom: 2rem;">学会了怎么拿东西，现在来学更丰富的操作！</p>
+
+        <div class="editor-window">
+            <div class="editor-header">
+                <div class="mac-dots">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="editor-title">list_methods.py</div>
+            </div>
+            <div class="editor-body">
+<pre><code class="language-python"># 定义列表 fruits
+fruits = ["apple", "banana", "cherry"]
+print("1. 初始列表:", fruits)
+
+# 2. 按索引访问元素（索引从0开始）
+print("\n2. 第一个水果:", fruits[0])
+# fruits[0] 对应第一个元素，fruits[1]是banana，fruits[2]是cherry
+
+# 3. append()：在列表末尾添加元素
+fruits.append("orange")
+print("\n3. append后:", fruits)
+
+# 4. insert()：在指定索引位置插入元素
+fruits.insert(1, "grape")
+print("\n4. insert(1, 'grape')后:", fruits)
+# 在索引1的位置插入grape，原索引1及之后的元素后移
+
+# 5. pop()：弹出（删除并返回）元素，默认弹出最后一个
+popped = fruits.pop()
+print("\n5. pop()弹出的:", popped)
+print("   pop后:", fruits)
+# 弹出最后一个元素"orange"，popped变量值为"orange"
+
+# 6. len()：获取列表长度（元素个数）
+print("\n6. 列表长度:", len(fruits))</code></pre>
+            </div>
+            <div class="interaction-area">
+                <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+            </div>
+            <div class="console-output" id="output"></div>
+        </div>
+
+        <h3 style="color: #60a5fa; margin-top: 2.5rem; margin-bottom: 1.5rem;">📋 常用列表方法速查表</h3>
+        <div style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 1rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #475569;">
+                        <th style="text-align: left; padding: 0.8rem; color: #94a3b8;">方法</th>
+                        <th style="text-align: left; padding: 0.8rem; color: #94a3b8;">语法</th>
+                        <th style="text-align: left; padding: 0.8rem; color: #94a3b8;">功能说明</th>
+                        <th style="text-align: left; padding: 0.8rem; color: #94a3b8;">示例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.8rem; color: #cbd5e1;"><code>append(x)</code></td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;">列表.append(元素)</td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;">在列表<strong>末尾</strong>添加一个元素</td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;"><code>fruits.append("orange")</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.8rem; color: #cbd5e1;"><code>insert(i, x)</code></td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;">列表.insert(索引, 元素)</td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;">在<strong>指定索引</strong>位置插入元素，原元素后移</td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;"><code>fruits.insert(1, "grape")</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.8rem; color: #cbd5e1;"><code>pop([i])</code></td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;">列表.pop(可选索引)</td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;">删除并返回指定索引的元素，不填索引则删除最后一个</td>
+                        <td style="padding: 0.8rem; color: #cbd5e1;"><code>fruits.pop()</code> / <code>fruits.pop(1)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="color: #f59e0b; margin-bottom: 1.5rem;">⚠️ 易错点提醒</h3>
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 1rem;">
+            <ul style="font-size: 1.1rem; line-height: 2.2; color: #cbd5e1;">
+                <li>❌ <span style="color: #ef4444;">索引越界</span>：访问不存在的索引（如长度为4的列表访问 <code>fruits[4]</code>）会直接报错</li>
+                <li>❌ <code>pop(i)</code>：索引越界同样会报错</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="index_access.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="dict_basics.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = "1. 初始列表: ['apple', 'banana', 'cherry']\n\n2. 第一个水果: apple\n\n3. append后: ['apple', 'banana', 'cherry', 'orange']\n\n4. insert(1, 'grape')后: ['apple', 'grape', 'banana', 'cherry', 'orange']\n\n5. pop()弹出的: orange\n   pop后: ['apple', 'grape', 'banana', 'cherry']\n\n6. 列表长度: 4";
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

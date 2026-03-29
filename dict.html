@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. 字典 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar" style="width: 70%;"></div>
+
+    <div class="page-container">
+        <div class="two-col">
+            <div class="col-left">
+                <h2>📖 3. 字典 <code>{}</code></h2>
+                <p>列表是用<b>顺序（位置）</b>来找东西的，而 <span class="highlight-text">字典 (Dictionary)</span> 是用<b>名字</b>来找东西的！</p>
+                <p>它使用大括号 <code>{}</code>，里面存的是<b>键值对 (Key-Value)</b>。</p>
+                <p>就像查现实中的字典：你通过“词语（键）”去查找它的“解释（值）”。非常适合存储有标签的数据，比如学生信息。</p>
+            </div>
+            <div class="col-right">
+                <div class="editor-window">
+                    <div class="editor-header">
+                        <div class="mac-dots">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        </div>
+                        <div class="editor-title">dict_demo.py</div>
+                    </div>
+                    <div class="editor-body">
+<pre><code class="language-python"># 使用 {} 创建字典："键": "值"
+student = {
+    "name": "小明",
+    "age": 18,
+    "course": "Python"
+}
+
+# 通过键（标签）来获取对应的值
+print("学生姓名是:", student["name"])
+
+# 随时添加新标签
+student["score"] = 99
+print("更新后的字典:", student)</code></pre>
+                    </div>
+                    <div class="interaction-area">
+                        <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+                    </div>
+                    <div class="console-output" id="output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="list_ops.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="loop.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = "学生姓名是: 小明\n更新后的字典: {'name': '小明', 'age': 18, 'course': 'Python', 'score': 99}";
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. 列表常用操作 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="has-sidebar">
+    <!-- 侧边导航栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>📋 目录</h3>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="array_list_intro.html">1. 数组/列表</a></li>
+            <li><a href="list_ops_detailed.html" class="active">2. 列表常用操作</a></li>
+            <li><a href="list_ops_demo.html">3. 列表操作演示</a></li>
+            <li><a href="dict_basics.html">4. 字典核心特性</a></li>
+            <li><a href="dict_ops.html">5. 字典常用方法</a></li>
+            <li><a href="loop.html">6. for 循环下划线</a></li>
+            <li><a href="summary.html">7. 总结</a></li>
+        </ul>
+    </div>
+    
+    <div class="progress-bar" style="width: 30%;"></div>
+
+    <div class="page-container">
+        <h2 style="margin-bottom: 2rem;">✏️ 2. 列表常用操作速查表</h2>
+        
+        <!-- 表格 -->
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 0.8rem; width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 1.1rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #475569;">
+                        <th style="text-align: left; padding: 0.6rem; color: #94a3b8; width: 12%;">方法</th>
+                        <th style="text-align: left; padding: 0.6rem; color: #94a3b8; width: 22%;">语法</th>
+                        <th style="text-align: left; padding: 0.6rem; color: #94a3b8; width: 38%;">功能说明</th>
+                        <th style="text-align: left; padding: 0.6rem; color: #94a3b8; width: 28%;">示例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>append(x)</code></td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">列表.append(元素)</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">在列表<strong>末尾</strong>添加一个元素</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>fruits.append("orange")</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>extend(iter)</code></td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">列表.extend(可迭代对象)</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">将另一个列表/元组等的所有元素，<strong>批量添加</strong>到末尾</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>fruits.extend(["pear", "peach"])</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>insert(i, x)</code></td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">列表.insert(索引, 元素)</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">在<strong>指定索引位置</strong>插入元素，原元素后移</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>fruits.insert(1, "grape")</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>remove(x)</code></td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">列表.remove(元素)</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">删除列表中<strong>第一个匹配</strong>的指定元素，不存在则报错</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>fruits.remove("banana")</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #334155;">
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>pop([i])</code></td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">列表.pop(可选索引)</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">删除并返回<strong>指定索引</strong>的元素，不填索引则删除最后一个</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>fruits.pop()</code> / <code>fruits.pop(1)</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>sort()</code></td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">列表.sort()</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;">对列表元素进行<strong>原地升序排序</strong>（字符串按字母序，数字按大小）</td>
+                        <td style="padding: 0.6rem; color: #cbd5e1;"><code>fruits.sort()</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="array_list_intro.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="list_ops_demo.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <script>
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python-{}/[]/for_ - 封面</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar" style="width: 11%;"></div>
+
+    <div class="page-container">
+        <div style="text-align: center;">
+            <h1 style="font-size: 5rem; margin-bottom: 2rem;">🐍 Python入门</h1>
+            <h2>4个基础但极其重要的知识点</h2>
+            <br><br>
+
+            <h3 style="color: #60a5fa; margin-bottom: 2rem; font-size: 1.8rem;">📋 目录</h3>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+                <!-- 卡片 1 -->
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; width: 280px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#3b82f6'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='transparent'" onclick="window.location.href='array_list_intro.html'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #22c55e;">1</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: #e2e8f0;">数组/列表</h4>
+                    <p style="font-size: 1rem; color: #94a3b8; line-height: 1.5;">list vs array 模块 + 常用操作</p>
+                </div>
+                
+                <!-- 卡片 2 -->
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; width: 280px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#3b82f6'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='transparent'" onclick="window.location.href='dict_basics.html'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #22c55e;">2</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: #e2e8f0;">字典</h4>
+                    <p style="font-size: 1rem; color: #94a3b8; line-height: 1.5;">核心特性、键值对与常用方法</p>
+                </div>
+                
+                <!-- 卡片 3 -->
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 1rem; width: 280px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#3b82f6'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='transparent'" onclick="window.location.href='loop.html'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #22c55e;">3</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: #e2e8f0;">for 循环下划线</h4>
+                    <p style="font-size: 1rem; color: #94a3b8; line-height: 1.5;">_ 在循环中的特殊用法</p>
+                </div>
+            </div>
+
+            <br><br>
+            <p style="color: #64748b;">( 按键盘 ➡️ 键 或点击目录直接跳转 )</p>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="array_list_intro.html" class="nav-btn" id="nextBtn">开始学习 ➡️</a>
+    </div>
+
+    <script>
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            }
+        });
+    </script>
+</body>
+</html>

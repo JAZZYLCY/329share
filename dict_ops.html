@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. 字典常用方法 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="has-sidebar">
+    <!-- 侧边导航栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>📋 目录</h3>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="array_list_intro.html">1. 数组/列表</a></li>
+            <li><a href="list_ops_detailed.html">2. 列表常用操作</a></li>
+            <li><a href="list_ops_demo.html">3. 列表操作演示</a></li>
+            <li><a href="dict_basics.html">4. 字典核心特性</a></li>
+            <li><a href="dict_ops.html" class="active">5. 字典常用方法</a></li>
+            <li><a href="loop.html">6. for 循环下划线</a></li>
+            <li><a href="summary.html">7. 总结</a></li>
+        </ul>
+    </div>
+    
+    <div class="progress-bar" style="width: 60%;"></div>
+
+    <div class="page-container">
+        <h2>✏️ 4. 常用字典方法速查表</h2>
+        
+        <div class="two-col" style="margin-top: 1.5rem;">
+            <div class="col-left">
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 0.8rem;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 1.2rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #475569;">
+                                <th style="text-align: left; padding: 0.6rem; color: #94a3b8;">方法</th>
+                                <th style="text-align: left; padding: 0.6rem; color: #94a3b8;">功能说明</th>
+                                <th style="text-align: left; padding: 0.6rem; color: #94a3b8;">示例</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #334155;">
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>keys()</code></td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">获取字典中<strong>所有的键</strong>，返回可迭代对象</td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>person.keys()</code> → <code>dict_keys(['name', 'city'])</code></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #334155;">
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>values()</code></td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">获取字典中<strong>所有的值</strong>，返回可迭代对象</td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>person.values()</code> → <code>dict_values(['Alice', 'Beijing'])</code></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #334155;">
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>items()</code></td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">获取字典中<strong>所有的键值对</strong>，返回可迭代对象</td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>person.items()</code> → <code>dict_items([('name', 'Alice'), ('city', 'Beijing')])</code></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #334155;">
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>get(key)</code></td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">安全获取键对应的值，键不存在时返回默认值（不报错）</td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>person.get("age", 0)</code> → <code>0</code></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>pop(key)</code></td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;">删除指定键的键值对，并返回对应的值</td>
+                                <td style="padding: 0.6rem; color: #cbd5e1;"><code>person.pop("name")</code> → <code>"Alice"</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="col-right">
+                <div class="editor-window" style="max-width: 100%; margin: 0;">
+                    <div class="editor-header">
+                        <div class="mac-dots">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        </div>
+                        <div class="editor-title">dict_methods.py</div>
+                    </div>
+                    <div class="editor-body">
+<pre><code class="language-python"># 定义一个字典
+person = {"name": "Alice", "city": "Beijing", "age": 25}
+print("初始字典:", person)
+
+# keys()：获取所有键
+print("\n所有键:", list(person.keys()))
+
+# values()：获取所有值
+print("所有值:", list(person.values()))
+
+# items()：获取所有键值对
+print("所有键值对:", list(person.items()))
+
+# get()：安全获取值
+print("\n获取 age:", person.get("age", 0))
+print("获取不存在的键:", person.get("phone", "未提供"))
+
+# pop()：删除键值对
+popped = person.pop("age")
+print("\n删除 age:", popped)
+print("删除后:", person)</code></pre>
+                    </div>
+                    <div class="interaction-area">
+                        <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+                    </div>
+                    <div class="console-output" id="output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="dict_basics.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="loop.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = `初始字典: {'name': 'Alice', 'city': 'Beijing', 'age': 25}
+
+所有键: ['name', 'city', 'age']
+所有值: ['Alice', 'Beijing', 25]
+所有键值对: [('name', 'Alice'), ('city', 'Beijing'), ('age', 25)]
+
+获取 age: 25
+获取不存在的键: 未提供
+
+删除 age: 25
+删除后: {'name': 'Alice', 'city': 'Beijing'}`;
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

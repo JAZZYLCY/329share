@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-2. 列表操作示例 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="has-sidebar">
+    <!-- 侧边导航栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>📋 目录</h3>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="array_list_intro.html">1. 数组/列表</a></li>
+            <li><a href="list_ops_detailed.html">2. 列表常用操作</a></li>
+            <li><a href="list_ops_demo.html" class="active">3. 列表操作演示</a></li>
+            <li><a href="dict_basics.html">4. 字典核心特性</a></li>
+            <li><a href="dict_ops.html">5. 字典常用方法</a></li>
+            <li><a href="loop.html">6. for 循环下划线</a></li>
+            <li><a href="summary.html">7. 总结</a></li>
+        </ul>
+    </div>
+    
+    <div class="progress-bar" style="width: 35%;"></div>
+
+    <div class="page-container">
+        <h2 style="margin-bottom: 2rem;">✏️ 2-2. 列表操作示例演示</h2>
+        
+        <!-- 左右布局：代码在左，运行结果在右 -->
+        <div class="two-col" style="width: 100%; gap: 1.5rem;">
+            <!-- 左侧：代码 -->
+            <div class="col-left" style="flex: 1;">
+                <div class="editor-window" style="max-width: 100%; margin: 0;">
+                    <div class="editor-header">
+                        <div class="mac-dots">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        </div>
+                        <div class="editor-title">list_methods.py</div>
+                    </div>
+                    <div class="editor-body" style="min-height: 350px;">
+<pre><code class="language-python"># 定义列表 fruits
+fruits = ["apple", "banana", "cherry"]
+print("1. 初始列表:", fruits)
+
+# 2. append()：末尾添加
+fruits.append("orange")
+print("2. append后:", fruits)
+
+# 3. extend()：批量添加
+fruits.extend(["pear", "peach"])
+print("3. extend后:", fruits)
+
+# 4. insert()：插入
+fruits.insert(1, "grape")
+print("4. insert后:", fruits)
+
+# 5. remove()：删除指定元素
+fruits.remove("banana")
+print("5. remove后:", fruits)
+
+# 6. pop()：弹出
+popped = fruits.pop()
+print("6. 弹出的:", popped)
+print("   pop后:", fruits)
+
+# 7. sort()：排序
+fruits.sort()
+print("7. sort后:", fruits)</code></pre>
+                    </div>
+                    <div class="interaction-area">
+                        <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：运行结果 -->
+            <div class="col-right" style="flex: 1;">
+                <div style="background: #1a1a1a; border-radius: 12px; border: 1px solid #334155; padding: 1.5rem; min-height: 350px; display: flex; flex-direction: column;">
+                    <h3 style="color: #22c55e; margin-bottom: 1rem; font-size: 1.2rem;">📟 运行结果</h3>
+                    <div id="output" style="color: #22c55e; font-family: 'Fira Code', monospace; font-size: 1.1rem; white-space: pre-wrap; flex: 1;">点击下方"运行代码"查看结果...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="list_ops_detailed.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="dict_basics.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.innerText = `1. 初始列表: ['apple', 'banana', 'cherry']
+
+2. append后: ['apple', 'banana', 'cherry', 'orange']
+
+3. extend后: ['apple', 'banana', 'cherry', 'orange', 'pear', 'peach']
+
+4. insert后: ['apple', 'grape', 'banana', 'cherry', 'orange', 'pear', 'peach']
+
+5. remove后: ['apple', 'grape', 'cherry', 'orange', 'pear', 'peach']
+
+6. 弹出的: peach
+   pop后: ['apple', 'grape', 'cherry', 'orange', 'pear']
+
+7. sort后: ['apple', 'cherry', 'grape', 'orange', 'pear']`;
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

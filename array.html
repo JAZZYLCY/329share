@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. 什么是数组 (Array) - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar" style="width: 10%;"></div>
+
+    <div class="page-container">
+        <div class="two-col">
+            <div class="col-left">
+                <h2>📦 1. 什么是数组 (Array)？</h2>
+                <p>在计算机科学中，<span class="highlight-text">数组 (Array)</span> 就像是一个<b>定制的鸡蛋盒</b>或<b>药盒</b>。</p>
+                <p>它有几个相对“死板”的规定：</p>
+                <ul>
+                    <li style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #cbd5e1;">👉 <b>只能装同一种东西</b>：比如全装数字，或者全装字母，不能混搭。</li>
+                    <li style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #cbd5e1;">👉 <b>格子数量固定</b>：买来是10个格子，就只能装10个，不能临时变大。</li>
+                </ul>
+                <br>
+                <p>虽然死板，但它的好处是<b>找东西极快</b>，而且<b>非常省空间</b>，适合处理大量单一类型的数据（比如图像的像素、大量统计数据）。</p>
+            </div>
+            <div class="col-right">
+                <div class="editor-window">
+                    <div class="editor-header">
+                        <div class="mac-dots">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        </div>
+                        <div class="editor-title">array_concept.py</div>
+                    </div>
+                    <div class="editor-body">
+<pre><code class="language-python"># Python 中如果非要用严格的数组，需要引入专门的模块
+from array import array
+
+# 'i' 代表整数(integer)，规定这个数组只能装整数
+strict_array = array('i', [1, 2, 3])
+print("严格的数组:", strict_array)
+
+# 如果强行塞入一个文字，就会报错！
+# strict_array.append("苹果") # ❌ TypeError</code></pre>
+                    </div>
+                    <div class="interaction-area">
+                        <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+                    </div>
+                    <div class="console-output" id="output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="index.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="list.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = "严格的数组: array('i', [1, 2, 3])\n# 尝试加入文字会抛出 TypeError: integer argument expected, got str";
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>

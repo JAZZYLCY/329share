@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表常用操作 - Python 魔法入门</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="progress-bar" style="width: 62%;"></div>
+
+    <div class="page-container">
+        <h2>🛠️ 列表常用操作：索引、修改、添加</h2>
+        <p style="margin-bottom: 2rem;">光有列表还不够，我们得学会怎么<strong>用</strong>它！这几个是最常用的操作。</p>
+
+        <div class="two-col">
+            <div class="col-left">
+                <h3 style="color: #60a5fa; margin-bottom: 1rem;">1️⃣ 索引：通过位置拿东西</h3>
+                <p>列表就像一排储物柜，每个格子都有编号。</p>
+                <ul style="font-size: 1.1rem; line-height: 2; color: #cbd5e1; margin-bottom: 2rem;">
+                    <li>👉 <span class="highlight-text">从 0 开始数</span>：第1个是 [0]，第2个是 [1]...</li>
+                    <li>👉 <span class="highlight-text">负数倒着数</span>：[-1] 是最后一个，[-2] 倒数第二...</li>
+                </ul>
+
+                <h3 style="color: #a78bfa; margin-bottom: 1rem;">2️⃣ 修改：替换柜子里的东西</h3>
+                <p>直接用 <code>列表[位置] = 新东西</code> 就能替换！</p>
+                
+                <h3 style="color: #22c55e; margin-top: 2rem; margin-bottom: 1rem;">3️⃣ 其他常用技能</h3>
+                <ul style="font-size: 1.1rem; line-height: 2; color: #cbd5e1;">
+                    <li><code>len(列表)</code>：算一下列表里有几个东西</li>
+                    <li><code>列表.append(新东西)</code>：往最后面加一个</li>
+                </ul>
+            </div>
+            
+            <div class="col-right">
+                <div class="editor-window">
+                    <div class="editor-header">
+                        <div class="mac-dots">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        </div>
+                        <div class="editor-title">list_ops.py</div>
+                    </div>
+                    <div class="editor-body">
+<pre><code class="language-python"># 假设我们有一个购物车列表
+cart = ["牛奶", "面包", "苹果"]
+
+print("原始购物车:", cart)
+
+# --- 1. 索引访问 ---
+print("第1件商品:", cart[0])    # 0 是第一个
+print("最后1件商品:", cart[-1]) # -1 是倒数第一个
+
+# --- 2. 修改元素 ---
+cart[1] = "全麦面包"  # 把面包换成全麦面包
+print("修改后:", cart)
+
+# --- 3. 添加元素 ---
+cart.append("鸡蛋")
+print("加了鸡蛋后:", cart)
+
+# --- 4. 获取长度 ---
+print("购物车有几件商品:", len(cart))</code></pre>
+                    </div>
+                    <div class="interaction-area">
+                        <button class="run-btn" onclick="runCode()">▶ 运行代码</button>
+                    </div>
+                    <div class="console-output" id="output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航按钮 -->
+    <div class="controls">
+        <a href="array_vs_list.html" class="nav-btn" id="prevBtn">⬅️ 上一页</a>
+        <a href="dict.html" class="nav-btn" id="nextBtn">下一页 ➡️</a>
+    </div>
+
+    <!-- 引入 Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        function runCode() {
+            const out = document.getElementById('output');
+            out.style.display = 'block';
+            out.innerText = "原始购物车: ['牛奶', '面包', '苹果']\n第1件商品: 牛奶\n最后1件商品: 苹果\n修改后: ['牛奶', '全麦面包', '苹果']\n加了鸡蛋后: ['牛奶', '全麦面包', '苹果', '鸡蛋']\n购物车有几件商品: 4";
+        }
+
+        // 键盘左右键翻页
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                const next = document.getElementById('nextBtn');
+                if(next) window.location.href = next.href;
+            } else if (e.key === 'ArrowLeft') {
+                const prev = document.getElementById('prevBtn');
+                if(prev) window.location.href = prev.href;
+            }
+        });
+    </script>
+</body>
+</html>
